@@ -1,0 +1,73 @@
+﻿@model TuFicha.Models.DatosUsuarioViewModel
+
+
+
+            <div class="row mt-3">
+                    <h2>Mis Fichas 
+                        <a href="~/FichaUsuario/Create"><i class="fa fa-plus-circle"></i></a>
+                    </h2>
+                    <div class="row">
+
+                            @if (Model.fichaUsuario != null)
+                            {
+                                foreach (var item in Model.fichaUsuario)
+                                {
+                                    <div class="col-md-2 md-3">
+                                            <div class="row img-thumbnail text-center">
+                                                <a class="btn btn-default" href="@Url.Action("Details","FichaUsuario",new { id=item.IdFichaUsuario} )" target="_blank">
+                                                    <img style="height:50%; width:50%; margin-top: 15px; margin-bottom: 15px;" src="~/images/ficha.png" />
+                                                </a>
+                                                <div class="row">
+                                                    <div>
+                                                        <h5><b>@item.FU_Nombre</b></h5>
+                                                        <p>@item.Descripcion</p>
+                                                        <p>@item.FU_FechaCreacion</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                }
+                            }
+                    </div>                   
+            </div>
+
+            @*<img style="height:50%; width:50%; margin-top: 15px; margin-bottom: 15px;" src="~/images/ficha.png" />*@
+            <div class="row mt-3">
+ 
+                    <h2>Mis Documentos <a href="~/Documentos/Create"><i class="fa fa-plus-circle"></i></a></h2>
+ 
+                    <div class="row">
+
+                            @if (Model.documentosUsuario != null)
+                            {
+                                foreach (var item in Model.documentosUsuario)
+                                {
+                                    string[] texto = item.Documentos.Extension.Split('.');
+                                    string extSinPunto = texto[1];
+                                    string text = "../images/" + extSinPunto + ".png";
+                                    <div class="col-md-2 m-l-md m-t-sm">
+                                        <div>
+                                            <div class="row img-thumbnail m-t-sm text-center">
+                                                <a class="btn btn-default" href="@item.Documentos.ruta" target="_blank">
+                                                    <img style="height:45%; width:45%; margin-top: 15px; margin-bottom: 15px;" src='@text' />
+                                                </a>
+                                                <div class="row">
+                                                    <div class="row m-l-xl">
+                                                        @*<a class="btn btn-xs btn-success" href="@item.Documentos.ruta" target="_blank"><i class="fa fa-glass"></i> Ver</a>*@
+                                                    </div>
+                                                    <div>
+                                                        <h5><b>@item.Documentos.Doc_Nombre</b></h5>
+                                                        <p>@item.Documentos.Doc_Descripcion</p>
+                                                        <p>@item.Documentos.Doc_FechaCreacion</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+                            }
+                     </div>
+
+                
+            </div>

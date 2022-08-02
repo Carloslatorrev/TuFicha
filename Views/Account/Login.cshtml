@@ -1,0 +1,101 @@
+﻿@using TuFicha.Models
+@model LoginViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml"; ;
+}
+@{
+    ViewBag.Title = "TuFicha";
+}
+
+
+<div class="row m-b-xl">
+</div>
+<br />
+<br />
+<div class="login-container m-t-xl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="hpanel">
+                <div class="panel-body">
+                    <div class="text-center m-b-md">
+                        <div class="col-lg-12">
+                            <center>
+                                <div class="m">
+                                </div>
+                            </center>
+                        </div>
+                        <div class="col-xs-7">
+                        </div>
+                        <div class="col-xs-5" style="margin-top:-25px">
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <section id="loginForm">
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="text-center">
+                                    <h2 style="color:grey;">Bienvenido a TuFicha.cl</h2>
+                                </div>
+                                <br />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "correo@email.com" })
+                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-10">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "*******" })
+                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group pull-right">
+                                    <div class="col-md-offset-1 col-md-12">
+                                        <div class="checkbox">
+                                            <div class="col-md-1" style="margin-right: 0px;">
+                                                @Html.CheckBoxFor(m => m.RememberMe)
+                                            </div>
+                                            <div class="col-md-11" style="margin-left: 0px;">
+                                                @Html.LabelFor(m => m.RememberMe)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group center">
+                                    <div class="col-md-offset-1 col-md-10">
+                                        <input type="submit" style="width: 100%;" value="Ingresar" class="btn-lg btn btn-info" />
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <p>
+                                        ¿Eres paciente nuevo? @Html.ActionLink("Registrate aquí", "Register")
+                                    </p>
+                                </div>
+
+                                @* Habilite esta opción una vez tenga la confirmación de la cuenta habilitada para la funcionalidad de restablecimiento de contraseña
+                                    <p>
+                                        @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
+                                    </p>*@
+                            }
+                        </section>
+
+                        @*<div class="col-md-4">
+                                <section id="socialLoginForm">
+                                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                                </section>
+                            </div>*@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

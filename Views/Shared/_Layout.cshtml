@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuFicha</title>
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+    <!-- Primary vendor style -->
+    @Styles.Render("~/bundles/bootstrap/css")
+    @Styles.Render("~/bundles/peicon7stroke/css")
+    @Styles.Render("~/bundles/toastr/css")
+    <!-- Primary HOMER style -->
+    @Styles.Render("~/bundles/font-awesome/css")
+    @Styles.Render("~/bundles/animate/css")
+    @Styles.Render("~/bundles/homer/css")
+
+    <!-- Bootstrap CSS -->
+    @*<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">*@
+    <link href="~/Vendor/MyStyle/style.css" rel="stylesheet" />
+</head>
+<body style="background-image:url(~/images/bg-creampurple.png); background-repeat: no-repeat;">
+    @*<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarContenedor">
+                <ul class="nav navbar-nav m-t-sm">
+                    <li>@Html.ActionLink("Perfil", "EditProfile", "Account")</li>
+                    <li>@Html.ActionLink("Generar Código", "Index", "LinkUsuario")</li>
+                </ul>
+                <div class="btn-group m-t-sm">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:transparent; color:#9d9fa2; font-size:25px;">
+                        Añadir
+                    </button>
+                    <div class="dropdown-menu input-sm" aria-labelledby="dropdownMenuButton" style="background-color:lightgray">
+                        <a class="dropdown-item" href="~/FichaUsuario/Index" style="padding:5px;">Fichas</a><br />
+                        <a class="dropdown-item" href="~/Documentos/Index" style="padding:5px;">Documentos</a><br />
+                        <a class="dropdown-item" href="~/ProfesionalSalud/Index" style="padding:5px;">Profesional Salud</a><br />
+                        <a class="dropdown-item" href="~/CentroMedico/Index" style="padding:5px;">Centro Médico</a>
+                    </div>
+                </div>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </nav>*@
+
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top custom-navbar shadow" id="navbarCentral" style="height:12%; background-color:lightgray; color:black">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("TuFicha", "Index", "Home", new { area = "" }, new { @class = "navbar-brand m-t-sm", @Id = "btnInicio" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav m-t-sm">
+                    <li>@Html.ActionLink("Perfil", "EditProfile", "Account")</li>
+                    <li>@Html.ActionLink("Generar Código", "Index", "LinkUsuario")</li>
+                </ul>
+                <div class="btn-group m-t-sm">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:transparent; color:#9d9fa2; font-size:25px;">
+                        Añadir
+                    </button>
+                    <div class="dropdown-menu dropdown-style" aria-labelledby="dropdownMenuButton" style="background-color:lightgray">
+                        <a class="dropdown-item" href="~/FichaUsuario/Index" style="padding:5px;">Fichas</a><br />
+                        <a class="dropdown-item" href="~/Documentos/Index" style="padding:5px;">Documentos</a><br />
+                        <a class="dropdown-item" href="~/ProfesionalSalud/Index" style="padding:5px;">Profesional Salud</a><br />
+                        <a class="dropdown-item" href="~/CentroMedico/Index" style="padding:5px;">Centro Médico</a>
+                    </div>
+                </div>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <div class="container body-content m-t-lg">
+        <div class="row">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - TuFicha - Version 0.0.5</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Section for main scripts render -->
+    @Scripts.Render("~/bundles/jquery/js")
+    @Scripts.Render("~/bundles/bootstrap/js")
+    @Scripts.Render("~/bundles/toastr/js")
+    @Scripts.Render("~/bundles/homer/js")
+
+    <!-- Handler for local scripts -->
+    @RenderSection("scripts", required: false){
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    }
+</body>
+</html>

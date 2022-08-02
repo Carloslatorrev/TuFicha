@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TuFicha.Models.FichaUsuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tus Fichas actuales:</h2>
+
+<p>
+    @Html.ActionLink("Crear nueva Ficha", "Create",null, new {@class ="btn btn-sm btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FU_Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FU_FechaCreacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FU_Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FU_FechaCreacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdFichaUsuario }, new { @class = "btn btn-xs btn-warning" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdFichaUsuario}, new { @class = "btn btn-xs btn-primary" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdFichaUsuario }, new { @class = "btn btn-xs btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TuFicha.Models.LinkUsuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Listado de Códigos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo código", "Create",null,new { @class = "btn btn-sm btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FichaUsuario.FU_Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.horas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaVencimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LU_FechaCreacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FichaUsuario.FU_Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.horas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaVencimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LU_FechaCreacion)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.IdLink }) |*@
+            @Html.ActionLink("Details", "Details", new { id=item.IdLink }, new { @class = "btn btn-xs btn-primary" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdLink }, new { @class = "btn btn-xs btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

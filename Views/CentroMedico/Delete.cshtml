@@ -1,0 +1,56 @@
+﻿@model TuFicha.Models.CentroMedico
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Borrar</h2>
+
+<h3>¿Está seguro de realizar esta acción?</h3>
+<div>
+    <h4>Centro Medico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudad.Ciu_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad.Ciu_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CM_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CM_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCentro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCentro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver", "Index",null,new { @class="btn btn-default"})
+        </div>
+    }
+</div>

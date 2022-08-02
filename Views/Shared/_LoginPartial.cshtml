@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+
+    <ul class="m-t-sm">
+        <li class="pnav-nombre">@ViewBag.Nombre</li>
+        <li class="pnav-descripcion">@ViewBag.Rut</li>
+        <li class="pnav-descripcion">@ViewBag.Edad</li>
+        <a href="./index.html">
+        <li class="error-text"><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+        </a>
+    </ul>
+    <!--<ul class="nav navbar-nav navbar-right">
+        <li>
+            <b>@ViewBag.Nombre</b><br />
+            @ViewBag.Rut<br />
+            @ViewBag.Edad años <br />
+            <a style="font-size: 13px; color:red; margin-top:0px; padding-top: 0px; padding-left:0px;" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a>
+        </li>-->
+        @*<li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>*@
+    <!--</ul>-->
+    }
+}
+else
+{
+<ul class="nav navbar-nav navbar-right m-t-sm">
+    <li>
+        <b>@ViewBag.Nombre</b><br />
+        @ViewBag.Rut <br />
+        @ViewBag.Edad <br />
+        <b>Cerrar Sesión</b>
+    </li>
+    @*<li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
+</ul>
+}

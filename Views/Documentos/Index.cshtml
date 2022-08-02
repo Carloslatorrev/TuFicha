@@ -1,0 +1,69 @@
+﻿@model IEnumerable<TuFicha.Models.Documentos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Documentos</h2>
+
+<p>
+    @Html.ActionLink("Añadir nuevo", "Create",null, new { @class = "btn btn-sm btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CentroMedico.CM_Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfesionalSalud.Pro_Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoDocumento.TD_Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Doc_Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Doc_FechaCreacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Extension)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Doc_Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CentroMedico.CM_Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfesionalSalud.Pro_Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoDocumento.TD_Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Doc_Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Doc_FechaCreacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Extension)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Doc_Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdDocumento }, new { @class = "btn btn-xs btn-warning"}) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.IdDocumento }, new { @class = "btn btn-xs btn-info" }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.IdDocumento }, new { @class = "btn btn-xs btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

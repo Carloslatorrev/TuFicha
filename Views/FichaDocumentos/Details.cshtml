@@ -1,0 +1,34 @@
+﻿@model TuFicha.Models.FichaDocumentos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FichaDocumentos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Documentos.Doc_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Documentos.Doc_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdFichaUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdFichaUsuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdFichaDocumento }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

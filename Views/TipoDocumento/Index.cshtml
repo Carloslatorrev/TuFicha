@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TuFicha.Models.TipoDocumento>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TD_Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TD_FechaCreacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsExamen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDiagnostico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsLicencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsOtro)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TD_Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TD_FechaCreacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsExamen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDiagnostico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsLicencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsOtro)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdTipoDocumento }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdTipoDocumento }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdTipoDocumento })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<TuFicha.Models.ProfesionalSalud>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Profesionales de Salud agregados</h2>
+
+<p>
+    @Html.ActionLink("Agregar nuevo", "Create", null, new { @class = "btn btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pro_Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pro_Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pro_RUT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pro_Profesion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Especialidad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    if(item.IdProfesional != 1)
+                {
+                    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pro_Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pro_Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pro_RUT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pro_Profesion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Especialidad)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdProfesional }, new { @class = "btn btn-xs btn-warning"}) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdProfesional }, new { @class = "btn btn-xs btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdProfesional }, new { @class = "btn btn-xs btn-danger" })
+        </td>
+    </tr>
+                }
+    
+}
+
+</table>

@@ -1,0 +1,50 @@
+﻿@model TuFicha.Models.CentroMedico
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Centro Médico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudad.Ciu_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad.Ciu_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CM_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CM_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCentro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCentro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdCentroMedico }, new { @class = "btn btn-warning"}) |
+    @Html.ActionLink("Volver", "Index",null, new { @class = "btn btn-default"})
+</p>

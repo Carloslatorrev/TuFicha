@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuFicha</title>
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+    <!-- Primary vendor style -->
+    @Styles.Render("~/bundles/bootstrap/css")
+    @Styles.Render("~/bundles/peicon7stroke/css")
+    @Styles.Render("~/bundles/toastr/css")
+    <!-- Primary HOMER style -->
+    @Styles.Render("~/bundles/font-awesome/css")
+    @Styles.Render("~/bundles/animate/css")
+    @Styles.Render("~/bundles/homer/css")
+
+</head>
+<body style="background-image:url(/images/bg-creampurple.png); background-repeat: no-repeat; background-attachment: fixed">
+    <div class="container body-content">
+        @RenderBody()
+        
+        <br />
+        <div class="m-t-xl">
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - TuFicha - Version 0.0.5</p>
+            </footer>
+        </div>
+        
+    </div>
+
+    <!-- Section for main scripts render -->
+    @Scripts.Render("~/bundles/jquery/js")
+    @Scripts.Render("~/bundles/bootstrap/js")
+    @Scripts.Render("~/bundles/toastr/js")
+    @Scripts.Render("~/bundles/homer/js")
+
+    <!-- Handler for local scripts -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

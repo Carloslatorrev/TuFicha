@@ -1,0 +1,111 @@
+﻿@model TuFicha.Models.RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml"; ;
+}
+@{
+    ViewBag.Title = "Registrarse";
+}
+
+
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="m-t-xl">
+
+    </div>
+    <div class="m-t-xl">
+
+    </div>
+    <div class="container m-t-xl" style="background-color:white; max-height:600px;max-width: 700px;">
+        <div class="hpanel">
+            @Html.AntiForgeryToken()
+            <h4>Cree una cuenta nueva.</h4>
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="">
+
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label", @style = "text-align: left;" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label", @style = "text-align: left;" })
+                        <div class="col-md-8">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label", @style = "text-align: left;" })
+                        <div class="col-md-8">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Nombre, new { @class = "col-md-4 control-label", @style = "text-align: left;" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Apellidos, new { @class = "col-md-4 control-label", @style = "text-align: left;" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Apellidos, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Rut, new { @class = "col-md-4 control-label", @style = "text-align: left;" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Rut, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FechaNacimiento, new { @class = "col-md-4 control-label", @style = "text-align: left;" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.FechaNacimiento, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Genero, new { @class = "col-md-4 control-label", @style = "text-align: left;" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Genero, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.IdCiudad, "Ciudad", new { @class = "col-md-4 control-label", @style = "text-align: left;" })
+                        <div class="col-md-8">
+                            @Html.DropDownList("IdCiudad", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdCiudad, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-1 col-md-10 text-center">
+                    <input type="submit" class="btn btn-info" value="Registrarse" />
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Vendor/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript">
+        $('#FechaNacimiento').datepicker({
+            format: "yyyy-mm-dd",
+            language: "es"
+        });
+    </script>
+}

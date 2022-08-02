@@ -1,0 +1,65 @@
+﻿@model TuFicha.Models.LinkUsuario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Borrar Código</h2>
+
+<h3>¿Está seguro de borrar este Código? Ya no será válido cuando se borre.</h3>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FichaUsuario.FU_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FichaUsuario.FU_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.horas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaVencimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaVencimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LU_FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LU_FechaCreacion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
