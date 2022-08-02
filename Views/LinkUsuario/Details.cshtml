@@ -1,0 +1,58 @@
+﻿@model TuFicha.Models.LinkUsuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Mi Código</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FichaUsuario.FU_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FichaUsuario.FU_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.horas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaVencimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaVencimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LU_FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LU_FechaCreacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdLink }, new { @class = "btn btn-warning"}) |
+    @Html.ActionLink("Volver", "Index",null, new { @class = "btn btn-default"})
+</p>

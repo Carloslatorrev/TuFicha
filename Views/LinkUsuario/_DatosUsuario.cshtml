@@ -1,0 +1,69 @@
+﻿@model TuFicha.Models.WatchDocViewModel
+
+
+<div class="row">
+    <div class="hpanel">
+        <div class="row">
+            <div>
+                <h4>Datos Paciente:</h4>
+            </div>
+            <div class="col-lg-12">
+                @if (Model.user != null)
+                {
+                        <div class="col-lg-6 m-l-md">
+                            <div>
+                                <div class="row img-thumbnail text-center" style="width: 100%;">
+                                    <h5>@Model.user.Nombre @Model.user.Apellidos</h5>
+                                    <div class="row">
+                                        <div>
+                                            <p>Edad: @ViewBag.Edad</p>
+                                            <p>Rut: @ViewBag.Rut</p>
+                                            <p>Email: @Model.user.Email</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                }
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div>
+                <h2>Sus Documentos</h2>
+            </div>
+            <div class="col-lg-12">
+                @if (Model.documentos != null)
+                {
+                    foreach (var item in Model.documentos)
+                    {
+                        string[] texto = item.Documentos.Extension.Split('.');
+                        string extSinPunto = texto[1];
+                        string text = "../images/" + extSinPunto + ".png";
+                        <div class="col-lg-2 m-l-md">
+                            <div class="row">
+                                <div class="row img-thumbnail text-center">
+                                    <a class="btn btn-default" href="@item.Documentos.ruta" target="_blank">
+                                        <img style="height:50%; width:50%; margin-top: 15px; margin-bottom: 15px;" src='@text' />
+                                    </a>
+                                </div>
+                                <div class="row">
+                                    <div class="row m-l-xl">
+                                        @*<a class="btn btn-xs btn-success" href="@item.Documentos.ruta" target="_blank"><i class="fa fa-glass"></i> Ver</a>*@
+                                    </div>
+                                    <div>
+                                        <p><b>@item.Documentos.Doc_Nombre</b></p>
+                                        <p>@item.Documentos.Doc_Descripcion</p>
+                                        <p>@item.Documentos.Doc_FechaCreacion</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+               
+            </div>
+        </div>
+    </div>
+</div>

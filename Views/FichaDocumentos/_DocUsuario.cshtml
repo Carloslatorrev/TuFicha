@@ -1,0 +1,69 @@
+﻿@model TuFicha.Models.DocumentoFichaModelView
+
+
+    <div class="row">
+        <div class="hpanel">           
+            <br />
+            <div class="row">
+                <div>
+                    <h2>Tus Documentos</h2>
+                </div>
+                <div class="col-lg-12 m-l-md">
+                    @if (Model.documentos != null)
+                    {
+                        foreach (var item in Model.documentos)
+                        {
+                            string[] texto = item.Extension.Split('.');
+                            string extSinPunto = texto[1];
+                            string text = "../images/"+ extSinPunto + ".png";
+                            <div class="col-lg-2">
+                                <div class="row">
+                                    <div class="checkbox-inline">
+                                        <div class="checkbox" name="documentos">
+                                            <input class="icheckbox_square-green" type="checkbox" value="@item.IdDocumento" name="IdDocumentos" />
+                                            <div class="row img-thumbnail text-center">
+                                                <img id="@item.Doc_Nombre" style="height:50%; width:50%; margin-top: 15px; margin-bottom: 15px;" src='@text' />
+                                            </div>
+                                            <div class="row">
+                                                <div class="row m-l-xl">
+                                                    @*<a class="btn btn-xs btn-success" href="@item.Documentos.ruta" target="_blank"><i class="fa fa-glass"></i> Ver</a>*@
+                                                </div>
+                                                <div>
+                                                    <p><b>@item.Doc_Nombre</b></p>
+                                                    <p>@item.Doc_Descripcion</p>
+                                                    <p>@item.Doc_FechaCreacion</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="col-lg-2">
+                            <div>
+                                <div class="row img-thumbnail text-center">
+                                    <img style="height:50%; width:50%; margin-top: 15px; margin-bottom: 15px;" src="~/images/jpeg.png" />
+                                </div>
+                                <div class="row">
+                                    <div>
+                                        <p><b>DocumentoPrueba</b></p>
+                                        <p>Documento de prueba</p>
+                                        <p>27-07-2021</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            </div>
+    </div>
+
+<script type="text/javascript">
+
+
+
+</script>

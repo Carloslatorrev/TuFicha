@@ -1,0 +1,66 @@
+﻿@model TuFicha.Models.TipoDocumento
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TipoDocumento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TD_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TD_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TD_FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TD_FechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsExamen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsExamen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDiagnostico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDiagnostico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsLicencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsLicencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsOtro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsOtro)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdTipoDocumento }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

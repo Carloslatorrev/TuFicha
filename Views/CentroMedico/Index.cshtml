@@ -1,0 +1,55 @@
+﻿@model IEnumerable<TuFicha.Models.CentroMedico>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Centros médicos creados</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Centro Médico", "Create",null, new { @class = "btn btn-success"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ciudad.Ciu_Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CM_Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoCentro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    if(item.IdCentroMedico != 1)
+                {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ciudad.Ciu_Nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CM_Nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TipoCentro)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FechaCreacion)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.IdCentroMedico }, new { @class = "btn btn-xs btn-warning" }) |
+        @Html.ActionLink("Details", "Detalle", new { id = item.IdCentroMedico }, new { @class = "btn btn-xs btn-info" }) |
+        @Html.ActionLink("Delete", "Borrar", new { id = item.IdCentroMedico }, new { @class = "btn btn-xs btn-danger" })
+    </td>
+</tr>
+                }
+    
+}
+
+</table>

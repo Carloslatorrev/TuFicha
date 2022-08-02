@@ -1,0 +1,77 @@
+﻿@using TuFicha.Models
+@model CodigoViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml"; ;
+}
+@{
+    ViewBag.Title = "TuFicha";
+}
+
+
+
+<div class="row m-t-lg">
+</div><br /><br /><br />
+<div class="login-container m-t-xl m-b-xl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="hpanel" style="height: 100%;">
+                <div class="panel-body" style="height: 100%;">
+                    <div class="col-lg-12">
+                        <section id="loginForm">
+                            @using (Html.BeginForm("WatchDocs", "LinkUsuario", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="m-t-lg text-center">
+                                    <h2 style="color:grey;">Bienvenido a TuFicha.cl</h2>
+                                </div>
+                                <br />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group text-center">
+                                    <div class="col-md-1"></div>
+                                    @Html.LabelFor(m => m.codigo,"Ingresa tú código a continuación:", new { @class = "col-md-11 control-label", @style= "text-align: left; color:gray;"})
+                                    
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-10">                                        
+                                        @Html.TextBoxFor(m => m.codigo, new { @class = "form-control", @placeholder = "Ej: XP09AK2" })
+                                        @Html.ValidationMessageFor(m => m.codigo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-1 col-md-10">
+                                        <input type="submit" style="width:100%;" value="Ingresar" class="btn btn-lg btn-info" />
+                                    </div>
+                                </div><br /><hr />
+                                <div class="text-center">
+                                    <p>
+                                        ¿Eres un paciente nuevo?  @Html.ActionLink("Registrate aquí", "Register", "Account")
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <p>
+                                        ¿Tienes cuenta? @Html.ActionLink("Ingresa aquí", "Login", "Account")
+                                    </p>
+                                </div><br />
+
+                                @* Habilite esta opción una vez tenga la confirmación de la cuenta habilitada para la funcionalidad de restablecimiento de contraseña
+                                    <p>
+                                        @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
+                                    </p>*@
+                            }
+                        </section>
+
+                            @*<div class="col-md-4">
+                                <section id="socialLoginForm">
+                                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                                </section>
+                            </div>*@
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

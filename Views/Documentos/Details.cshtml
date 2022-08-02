@@ -1,0 +1,74 @@
+﻿@model TuFicha.Models.Documentos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Documentos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CentroMedico.CM_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CentroMedico.CM_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfesionalSalud.Pro_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfesionalSalud.Pro_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoDocumento.TD_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoDocumento.TD_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doc_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doc_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doc_FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doc_FechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Extension)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Extension)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doc_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doc_Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdDocumento }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

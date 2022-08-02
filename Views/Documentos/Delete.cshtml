@@ -1,0 +1,80 @@
+﻿@model TuFicha.Models.Documentos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Borrar Documento</h2>
+
+<h3>¿Está seguro de borrar este Documento? No se podrá acceder a él despues de borrarlo</h3>
+<div>
+    <h4>Documento:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CentroMedico.CM_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CentroMedico.CM_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfesionalSalud.Pro_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfesionalSalud.Pro_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoDocumento.TD_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoDocumento.TD_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doc_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doc_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doc_FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doc_FechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Extension)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Extension)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Doc_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Doc_Descripcion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="borrar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver", "Index")
+        </div>
+    }
+</div>

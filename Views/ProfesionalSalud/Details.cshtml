@@ -1,0 +1,58 @@
+﻿@model TuFicha.Models.ProfesionalSalud
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProfesionalSalud</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pro_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pro_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pro_Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pro_Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pro_RUT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pro_RUT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pro_Profesion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pro_Profesion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Especialidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Especialidad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdProfesional }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

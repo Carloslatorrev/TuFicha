@@ -1,0 +1,39 @@
+﻿@model IEnumerable<TuFicha.Models.FichaDocumentos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Documentos.Doc_Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdFichaUsuario)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Documentos.Doc_Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdFichaUsuario)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdFichaDocumento }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdFichaDocumento }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdFichaDocumento })
+        </td>
+    </tr>
+}
+
+</table>
